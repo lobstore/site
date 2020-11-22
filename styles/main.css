@@ -94,7 +94,8 @@ header {
 	background:white;
 }
 
-#Content div {
+.shopUnit{
+	background:#F6F6F6 ;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16);
 	display: inline-block;
 	align-items: center;
@@ -105,6 +106,7 @@ header {
 	padding: 10px;
 	margin: 10px 8px 12px 10px;
 }
-#Content div:hover{
-	background:#F6F6F6 ;
+
+.shopUnit:hover{
+	background:#D8D8D8 ;
 }

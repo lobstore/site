@@ -16,7 +16,7 @@ $query = "select distinct title, author, description, img, s_id from library.boo
 $result = mysqli_query($link, $query);
 $numberstring = mysqli_num_rows($result);
 
-if ($_GET['id'] == 1) {
+
 while ($row = mysqli_fetch_assoc($result)) {
 echo '<div class = "shopUnit">
 	<a href="index.php?page=product&id=1">
@@ -27,50 +27,5 @@ echo '<div class = "shopUnit">
 	</a>
 </div>';
 	}
-}elseif ($_GET['id'] == 2) {
-while ($row = mysqli_fetch_assoc($result)) {
-echo '<div class = "shopUnit">
-	<a href="index.php?page=product&id=1">
-	<img src="'.$row["img"].'"width="150" height="180">
-	<div id = title>Title: '.$row["title"].'</div>
-	<div id = author>Author: '.$row["author"].'</div>
-	<div class = "shopUnitShortDesc">'.$row["description"].'</div>
-	</a>
-</div>';
-	}
-}elseif ($_GET['id'] == 3) {
-while ($row = mysqli_fetch_assoc($result)) {
-echo '<div class = "shopUnit">
-	<a href="index.php?page=product&id=1">
-	<img src="'.$row["img"].'"width="150" height="180">
-	<div id = title>Title: '.$row["title"].'</div>
-	<div id = author>Author: '.$row["author"].'</div>
-	<div class = "shopUnitShortDesc">'.$row["description"].'</div>
-	</a>
-</div>';
-	}
-}elseif ($_GET['id'] == 4) {
-while ($row = mysqli_fetch_assoc($result)) {
-echo '<div class = "shopUnit">
-	<a href="index.php?page=product&id=1">
-	<img src="'.$row["img"].'"width="150" height="180">
-	<div id = title>Title: '.$row["title"].'</div>
-	<div id = author>Author: '.$row["author"].'</div>
-	<div class = "shopUnitShortDesc">'.$row["description"].'</div>
-	</a>
-</div>';
-	}
-}elseif ($_GET['id'] == 5) {
-while ($row = mysqli_fetch_assoc($result)) {
-echo '<div class = "shopUnit">
-	<a href="index.php?page=product&id=1">
-	<img src="'.$row["img"].'"width="150" height="180">
-	<div id = title>Title: '.$row["title"].'</div>
-	<div id = author>Author: '.$row["author"].'</div>
-	<div class = "shopUnitShortDesc">'.$row["description"].'</div>
-	</a>
-</div>';
-	}
-}
 ?>
 </div>

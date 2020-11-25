@@ -125,3 +125,9 @@ header {
 	height: 100%;
 	width: 100%;
 }
+#openedProduct{
+	width: 500px;
+	height: auto;
+	margin:0 auto;
+
+}

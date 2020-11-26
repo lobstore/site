@@ -20,12 +20,6 @@
 		</div>
 	</header>
 	<div id="ContentBody">
-		<div id = "searchLine">
-			<form action="" method="POST">
-				<input type="search" name="s_book" placeholder="Search...">
-				<button type="submit">Search</button>
-			</form>
-		</div>
 				<?php
 						$page = $_GET['page'];
 						if (!isset($page)) {

@@ -128,9 +128,6 @@ header {
 #openedProduct{
 	width: 500px;
 	height: auto;
-	margin:10px auto;
-}
+	margin:0 auto;
 
-#searchLine{
-	float:right;
 }

@@ -3,10 +3,6 @@ $hostname = "localhost";
 $username = "root";
 $password = "root";
 $dbName = "library";
-$hostname = "localhost";
-$username = "tihon196_root";
-$password = "rootQwerty123";
-$dbName = "tihon196_root";
 if(!isset($_GET['s_book'])){
  $s_book = '';
 }else{$s_book = strip_tags(trim($_GET['s_book']));}

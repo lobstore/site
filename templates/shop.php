@@ -14,15 +14,22 @@
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<a href="shop.php">Библеотека</a>
+				<?php
+					if($_COOKIE['user']=='llo'){
+						echo '<a href="lk.php">Личный кабинет</a>';
+					}else{
+						echo '<a href="registration.php">Войти</a>';
+					}
+				 ?>
 			</div>
 		</div>
 		<div id="HeaderFooter">
 					<div id = "searchLine">
-			<form action="" method="get">
-				<input type="search" name="s_book" placeholder="Search...">
-				<button type="submit">Search</button>
-			</form>
-		</div>
+						<form action="" method="get">
+							<input type="search" name="s_book" placeholder="Search...">
+							<button type="submit">Search</button>
+						</form>
+					</div>
 		</div>
 	</header>
 	<div id="ContentBody">

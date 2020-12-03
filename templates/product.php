@@ -14,6 +14,13 @@
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<a href="shop.php">Библеотека</a>
+				<?php
+					if($_COOKIE['user']=='llo'){
+						echo '<a href="lk.php">Личный кабинет</a>';
+					}else{
+						echo '<a href="registration.php">Войти</a>';
+					}
+				 ?>
 			</div>
 		</div>
 		<div id="HeaderFooter">

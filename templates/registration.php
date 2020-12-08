@@ -24,7 +24,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			<div id="navWrap">
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
-				<a href="shop.php">Библеотека</a>
 				<?php
 					if($_COOKIE['user']=='llo'){
 						echo '<a href="lk.php">Личный кабинет</a>';
@@ -36,21 +35,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			</div>
 		</div>
 		<div id="HeaderFooter">
-			<div id = "searchLine">
-			<form action="" method="get">
-				<input type="search" name="s_book" placeholder="Search...">
-				<button type="submit">Search</button>
-			</form>
-		</div>
+			<div id="headMenu">
+				<div id="Menu">
+				<a href="/">Главная</a>
+				<a href="#">О нас</a>
+				<a href="/templates/shop.php">Библеотека</a>
+				</div>
+					<div id = "searchLine">
+						<form action="/templates/shop.php" method="get">
+							<input type="search" name="s_book" placeholder="Search...">
+							<button type="submit">Search</button>
+						</form>
+				</div>
+			</div>
+
 		</div>
 	</header>
+	<div id="body">
 	<div id="ContentBody">
 
 		<div class="login-page">
   <div class="form">
     <form class="register-form" action="registration.php" method="post">
       <input type="text" placeholder="name" name="name">
-      <input type="text" placeholder="subname" name="subname">
+      <input type="text" placeholder="email" name="email">
       <input type="password" placeholder="password" name="password">
       <!-- <input type="text" placeholder="email address" name="email"> -->
       <button>create</button>
@@ -66,6 +74,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   </div>
 </div>
 
+	</div>
+	</div>
+		<div id="footer">
+		12315
 	</div>
 </body>
 </html>

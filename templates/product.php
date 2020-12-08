@@ -1,3 +1,7 @@
+<?php if ($_SERVER["REQUEST_METHOD"]=="POST") {
+	$today = date("Y-m-d H:i:s");
+
+} ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +17,6 @@
 			<div id="navWrap">
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
-				<a href="shop.php">Библеотека</a>
 				<?php
 					if($_COOKIE['user']=='llo'){
 						echo '<a href="lk.php">Личный кабинет</a>';
@@ -24,14 +27,23 @@
 			</div>
 		</div>
 		<div id="HeaderFooter">
+					<div id="headMenu">
+				<div id="Menu">
+				<a href="/">Главная</a>
+				<a href="#">О нас</a>
+				<a href="/templates/shop.php">Библеотека</a>
+				</div>
 					<div id = "searchLine">
-			<form action="" method="get">
-				<input type="search" name="s_book" placeholder="Search...">
-				<button type="submit">Search</button>
-			</form>
-		</div>
+						<form action="/templates/shop.php" method="get">
+							<input type="search" name="s_book" placeholder="Search...">
+							<button type="submit">Search</button>
+						</form>
+				</div>
+			</div>
+
 		</div>
 	</header>
+	<div id="body">
 	<div id="ContentBody">
 				<div id="NaviLeft">
 				<a href="shop.php?id=1">Научная литература</a>
@@ -44,20 +56,32 @@
 <div class = "Units">
 <?php
 include 'vars.php';
+$_GLOBAL['book_id'] = $row[0]['book_id'];
 echo '<div id="openedProduct">
 			<div id = "openedProduct-img">
-			<img src="'.$row[0]["img"].'"width="500" height="700">
+				<img src="'.$row[0]["img"].'"width="500" height="700">
 			</div>
 			<div id = "openedProduct-content">
-			<h1 id = "openedProduct-name">
-			Title: '.$row[0]["title"].'
-			</h1>
-			<div id = openedProduct-desc>
-				'.$row[0]["description"].'
+				<h1 id = "openedProduct-name">
+					Title: '.$row[0]["title"].'
+				</h1>
+				<div id = openedProduct-desc>
+					'.$row[0]["description"].'
+				</div>
+				<div>
+					<form class="addbuttonform" method="post" action="">
+						<input type="submit" name="add" value="take it">
+					</form>
+				</div>
 			</div>
 		</div>';
+		print_r($_GLOBAL['book_id']);
 	?>
 </div>
+	</div>
+</div>
+	<div id="footer">
+		12315
 	</div>
 </body>
 </html>

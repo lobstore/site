@@ -11,7 +11,7 @@ if(!isset($_GET['title'])){
 }else{$title = $_GET['title'];}
 $s_id=$_GET['id'];
 $name = $_POST['name'];
-$subname = $_POST['subname'];
+$email = $_POST['subname'];
 $phonenumber - $_POST['phonenumber'];
 $u_password = $_POST['password'];
 $link = mysqli_connect($hostname,$username,$password) OR DIE("Can't create a connection!");
@@ -19,19 +19,40 @@ $link = mysqli_connect($hostname,$username,$password) OR DIE("Can't create a con
 mysqli_set_charset($link,"utf8");
  @$title = preg_replace('', '', $title);
  if($title!=''&&!is_null($s_id)){
-	$query = "select distinct title, author, description, img, s_id from $dbName.books where s_id = $s_id and title = '$title'";
+	$query = "SELECT distinct book_id, title, author, description, img, s_id from $dbName.books where s_id = $s_id and title = '$title'";
  }elseif (is_null($s_id)&&$s_book==''&&$title=='') {
- 	$query = "select distinct title, author, description, img, s_id from $dbName.books";
+ 	$query = "SELECT distinct title, author, description, img, s_id from $dbName.books";
  }elseif($title==''&&!is_null($s_id)){
- 	$query = "select distinct title, author, description, img, s_id from $dbName.books where s_id = $s_id";
+ 	$query = "SELECT distinct title, author, description, img, s_id from $dbName.books where s_id = $s_id";
  }elseif ($s_book!=''&&$title==''&&$s_id==''){
- 	$query = "select distinct title, author, description, img, s_id from $dbName.books where title = '$s_book'";
+ 	$query = "SELECT distinct title, author, description, img, s_id from $dbName.books where title = '$s_book'";
  }
  if ($u_password!=''||isset($u_password)) {
- 	$query = "insert into $dbName.readers (name,subname,password) values('$name','$subname','$u_password')";
+ 	$query = "INSERT into $dbName.users (login,email,password) values('$name','$email','$u_password')";
  }
+ $query1 = "SELECT * from $dbName.sections order by s_id";
+ $book_id = $_GLOBAL["book_id"];
+ if (isset($_POST['add'])) {
+ 	$query1 = "INSERT into $dbName.issuing (book_id,reader_id,date_taken,date_return) values($book_id,1, ".date('Y-m-d H:i:s').", ".mktime(0, 0, 0, date('Y'), date('m')+1, date('d')).")";
+ }
+
+$institle = $insauthor = $insdesc = $insimage = ' ';
+$inssection = $_POST['section'];
+ $institle = $_POST['title'];
+$insauthor =  $_POST['author'];
+$insdesc = $_POST['description'];
+$insimage = '../images/goods/'.$_POST['title'].'.jpg';
+ if(isset($_POST['title'])&&isset($_POST['section']))
+ {
+ 	$query = "INSERT into $dbName.books (title,author,description,img,s_id) values ('$institle','$insauthor','$insdesc','$insimage',$inssection)";
+ }
+	$result1 = mysqli_query($link, $query1);
+ 	@$numberstring1 = mysqli_num_rows($result1);
  $result = mysqli_query($link, $query);
  @$numberstring = mysqli_num_rows($result);
+ for ($i=0; $i < $numberstring1; $i++) {
+	$row1[$i] = mysqli_fetch_assoc($result1);
+}
 for ($i=0; $i < $numberstring; $i++) {
 	$row[$i] = mysqli_fetch_assoc($result);
 }

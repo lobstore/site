@@ -13,7 +13,6 @@
 			<div id="navWrap">
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
-				<a href="shop.php">Библеотека</a>
 				<?php
 					if($_COOKIE['user']=='llo'){
 						echo '<a href="lk.php">Личный кабинет</a>';
@@ -24,14 +23,23 @@
 			</div>
 		</div>
 		<div id="HeaderFooter">
+					<div id="headMenu">
+				<div id="Menu">
+				<a href="/">Главная</a>
+				<a href="#">О нас</a>
+				<a href="/templates/shop.php">Библеотека</a>
+				</div>
 					<div id = "searchLine">
-						<form action="" method="get">
+						<form action="/templates/shop.php" method="get">
 							<input type="search" name="s_book" placeholder="Search...">
 							<button type="submit">Search</button>
 						</form>
-					</div>
+				</div>
+			</div>
+
 		</div>
 	</header>
+	<div id="body">
 	<div id="ContentBody">
 				<div id="NaviLeft">
 				<a href="shop.php?id=1">Научная литература</a>
@@ -56,6 +64,10 @@ echo '<div class = "shopUnit">
 	}
 ?>
 </div>
+	</div>
+</div>
+		<div id="footer">
+		12315
 	</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	include 'vars.php';
-	@setcookie('user', 'llo', time()+3600,'/');
+	@setcookie('user', 1, time()+3600,'/');
     // страница была запрошена методом POST, следовательно какие-то данные были переданы
     // соответственно в этом блоке условного оператора - делаем что нужно с нашими данными
     // после чего делаем редирект
@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<?php
-					if($_COOKIE['user']=='llo'){
+					if($_COOKIE['user']==1){
 						echo '<a href="lk.php">Личный кабинет</a>';
 					}else{
 						echo '<a href="registration.php">Войти</a>';

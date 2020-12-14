@@ -1,5 +1,5 @@
 <?php
-setcookie('user','',time()-3600,'/');
+setcookie('user',0,time()-3600,'/');
 setcookie('admin', 'access', time()-3600,'admin.php');
 unset($_COOKIE['user']);
 unset($_COOKIE['admin']);

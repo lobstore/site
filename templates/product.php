@@ -1,5 +1,5 @@
 <?php if ($_SERVER["REQUEST_METHOD"]=="POST") {
-	$today = date("Y-m-d H:i:s");
+	include 'vars.php';
 
 } ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<?php
-					if($_COOKIE['user']=='llo'){
+					if($_COOKIE['user']==1){
 						echo '<a href="lk.php">Личный кабинет</a>';
 					}else{
 						echo '<a href="registration.php">Войти</a>';
@@ -75,7 +75,6 @@ echo '<div id="openedProduct">
 				</div>
 			</div>
 		</div>';
-		print_r($_GLOBAL['book_id']);
 	?>
 </div>
 	</div>

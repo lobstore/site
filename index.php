@@ -14,7 +14,7 @@
 				<a href="/">Главная</a>
 				<a href="#">О нас</a>
 				<?php
-					if($_COOKIE['user']=='llo'){
+					if($_COOKIE['user']==1){
 						echo '<a href="/templates/lk.php">Личный кабинет</a>';
 					}else{
 						echo '<a href="/templates/registration.php">Войти</a>';
@@ -39,9 +39,9 @@
 		</div>
 	</header>
 	<div id="body">
-		<div id="ContentBody">
-			<div id="Content">
-
+		<div id="ContentBody" >
+			<div id="introduce" style="margin-left: 0">
+				Эта библеотека создана при духовной поддержке Санкт-Петербургского Государственного Университета Телекоммуникаций имени профессора Михаила Александровича Бонч-Бруевича.
 			</div>
 		</div>
 	</div>

@@ -1,3 +1,9 @@
+<?php
+if($_SERVER['REQUEST_METHOD']=="POST"){
+
+	include "vars.php";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +20,7 @@
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<?php
-					if($_COOKIE['user']=='llo'){
+					if($_COOKIE['user']==1){
 						echo '<a href="lk.php">Личный кабинет</a>';
 					}else{
 						echo '<a href="registration.php">Войти</a>';
@@ -31,7 +37,7 @@
 				<a href="/templates/shop.php">Библеотека</a>
 				</div>
 					<div id = "searchLine">
-						<form action="/templates/unsetcookie.php" method="get">
+						<form action="shop.php" method="get">
 							<input type="search" name="s_book" placeholder="Search...">
 							<button type="submit">Search</button>
 						</form>
@@ -42,7 +48,15 @@
 	</header>
 	<div id="body">
 	<div id="ContentBody">
-        <form method="post" action="search.php">
+        <form method="post" action="">
+        	<input type="text" placeholder="Имя" name="iname">
+        	<input type="text" placeholder="Фамилия" name="isubname">
+        	<input type="text" placeholder="Адрес" name="iadres">
+        	<input type="text" placeholder="Телефон" name="iphone">
+        	<input type=submit value="Get Abonement" name="abonement">
+
+        </form>
+        <form method="post" action="unsetcookie.php">
             <input type=submit value="logout" name"exit">
         </form>
 	</div>

@@ -11,13 +11,14 @@ if(!isset($_GET['title'])){
 }else{$title = $_GET['title'];}
 $s_id=$_GET['id'];
 $name = $_POST['name'];
-$email = $_POST['subname'];
+$email = $_POST['email'];
 $phonenumber - $_POST['phonenumber'];
 $u_password = $_POST['password'];
 $link = mysqli_connect($hostname,$username,$password) OR DIE("Can't create a connection!");
 @mysqli_select_db($link,"$dbName") or die("Can't select a database!");
 mysqli_set_charset($link,"utf8");
- @$title = preg_replace('', '', $title);
+ //@$title = preg_replace('+', ' ', $title);
+
  if($title!=''&&!is_null($s_id)){
 	$query = "SELECT distinct book_id, title, author, description, img, s_id from $dbName.books where s_id = $s_id and title = '$title'";
  }elseif (is_null($s_id)&&$s_book==''&&$title=='') {
@@ -27,15 +28,11 @@ mysqli_set_charset($link,"utf8");
  }elseif ($s_book!=''&&$title==''&&$s_id==''){
  	$query = "SELECT distinct title, author, description, img, s_id from $dbName.books where title = '$s_book'";
  }
- if ($u_password!=''||isset($u_password)) {
+ if ($u_password!=''&&isset($u_password)) {
  	$query = "INSERT into $dbName.users (login,email,password) values('$name','$email','$u_password')";
  }
  $query1 = "SELECT * from $dbName.sections order by s_id";
  $book_id = $_GLOBAL["book_id"];
- if (isset($_POST['add'])) {
- 	$query1 = "INSERT into $dbName.issuing (book_id,reader_id,date_taken,date_return) values($book_id,1, ".date('Y-m-d H:i:s').", ".mktime(0, 0, 0, date('Y'), date('m')+1, date('d')).")";
- }
-
 $institle = $insauthor = $insdesc = $insimage = ' ';
 $inssection = $_POST['section'];
  $institle = $_POST['title'];
@@ -55,6 +52,22 @@ $insimage = '../images/goods/'.$_POST['title'].'.jpg';
 }
 for ($i=0; $i < $numberstring; $i++) {
 	$row[$i] = mysqli_fetch_assoc($result);
+}
+$ireader_id = $_COOKIE['user'];
+$iname = $_POST['iname'];
+$isubname =$_POST['isubname'];
+$iadres =$_POST['iadres'];
+$iphone = $_POST['iphone'];
+if(isset($_POST['abonement'])){
+	$query = "call addAbonement($ireader_id,'$iname','$iadres','$isubname','$iphone')";
+	mysqli_query($link, $query);
+	unset($_POST['abonement']);
+}
+$book_id = $row[0]['book_id'];
+if(isset($_POST['add'])){
+	$query = "INSERT into $dbName.issuing (book_id,reader_id,date_taken,date_return) values($book_id, $ireader_id, '2020-12-15', '2021-01-15')";
+	mysqli_query($link, $query);
+	unset($_POST['add']);
 }
 mysqli_close($link);
 ?>

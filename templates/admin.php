@@ -11,10 +11,9 @@ if(move_uploaded_file($_FILES['inputFile']['tmp_name'], __DIR__.'/../images/good
     rename (__DIR__.'/../images/goods/'.$_FILES["inputFile"]["name"], __DIR__.'/../images/goods/'.$_POST['title'].'.jpg');
     echo "Uploaded";
 }else{
-echo 'No File Uploaded';
-}
-}
-}
+echo 'No File Uploaded';}
+														}
+										}
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,7 +23,7 @@ echo 'No File Uploaded';
 </head>
 <body>
 	<div >
-		<? include 'vars.php'; ?>
+		<? //include 'vars.php'; ?>
 		<form  id="admit" action="admin.php" method="post" enctype="multipart/form-data">
 			<!--<input type="file" name="inputFile"> -->
 			<textarea rows="10" cols="45" name="description" placeholder="description here"></textarea>

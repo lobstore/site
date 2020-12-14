@@ -14,7 +14,7 @@
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
 				<?php
-					if($_COOKIE['user']=='llo'){
+					if($_COOKIE['user']==1){
 						echo '<a href="lk.php">Личный кабинет</a>';
 					}else{
 						echo '<a href="registration.php">Войти</a>';
@@ -54,7 +54,7 @@
 include 'vars.php';
 for ($i=0; $i < $numberstring; $i++) {
 echo '<div class = "shopUnit">
-	<a href="product.php?&id='.$row[$i]["s_id"].'&title='.$row[$i]["title"].'">
+	<a href="product.php?id='.$row[$i]["s_id"].'&title='.$row[$i]["title"].'">
 	<img src="'.$row[$i]["img"].'"width="150" height="180">
 	<div id = title>Title: '.$row[$i]["title"].'</div>
 	<div id = author>Author: '.$row[$i]["author"].'</div>

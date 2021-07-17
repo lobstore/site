@@ -13,18 +13,33 @@
 			<div id="navWrap">
 				<a href="../">Главная</a>
 				<a href="#">О нас</a>
-				<a href="shop.php">Библеотека</a>
+				<?php
+					if($_COOKIE['user']==1){
+						echo '<a href="lk.php">Личный кабинет</a>';
+					}else{
+						echo '<a href="registration.php">Войти</a>';
+					}
+				 ?>
 			</div>
 		</div>
 		<div id="HeaderFooter">
+					<div id="headMenu">
+				<div id="Menu">
+				<a href="/">Главная</a>
+				<a href="#">О нас</a>
+				<a href="/templates/shop.php">Библеотека</a>
+				</div>
 					<div id = "searchLine">
-			<form action="" method="get">
-				<input type="search" name="s_book" placeholder="Search...">
-				<button type="submit">Search</button>
-			</form>
-		</div>
+						<form action="/templates/shop.php" method="get">
+							<input type="search" name="s_book" placeholder="Search...">
+							<button type="submit">Search</button>
+						</form>
+				</div>
+			</div>
+
 		</div>
 	</header>
+	<div id="body">
 	<div id="ContentBody">
 				<div id="NaviLeft">
 				<a href="shop.php?id=1">Научная литература</a>
@@ -39,7 +54,7 @@
 include 'vars.php';
 for ($i=0; $i < $numberstring; $i++) {
 echo '<div class = "shopUnit">
-	<a href="product.php?&id='.$row[$i]["s_id"].'&title='.$row[$i]["title"].'">
+	<a href="product.php?id='.$row[$i]["s_id"].'&title='.$row[$i]["title"].'">
 	<img src="'.$row[$i]["img"].'"width="150" height="180">
 	<div id = title>Title: '.$row[$i]["title"].'</div>
 	<div id = author>Author: '.$row[$i]["author"].'</div>
@@ -49,6 +64,10 @@ echo '<div class = "shopUnit">
 	}
 ?>
 </div>
+	</div>
+</div>
+		<div id="footer">
+		12315
 	</div>
 </body>
 </html>

@@ -31,7 +31,7 @@ mysqli_set_charset($link,"utf8");
  if ($u_password!=''&&isset($u_password)) {
  	$query = "INSERT into $dbName.users (login,email,password) values('$name','$email','$u_password')";
  }
- $query1 = "SELECT * from $dbName.sections order by s_id";
+
  $book_id = $_GLOBAL["book_id"];
 $institle = $insauthor = $insdesc = $insimage = ' ';
 $inssection = $_POST['section'];
@@ -39,17 +39,18 @@ $inssection = $_POST['section'];
 $insauthor =  $_POST['author'];
 $insdesc = $_POST['description'];
 $insimage = '../images/goods/'.$_POST['title'].'.jpg';
- if(isset($_POST['title'])&&isset($_POST['section']))
+ if(isset($_POST['title'])&&isset($_POST['section'])&&isset($_POST['addbook']))
  {
  	$query = "INSERT into $dbName.books (title,author,description,img,s_id) values ('$institle','$insauthor','$insdesc','$insimage',$inssection)";
  }
+  $query1 = "SELECT * from $dbName.sections order by s_id";
 	$result1 = mysqli_query($link, $query1);
  	@$numberstring1 = mysqli_num_rows($result1);
- $result = mysqli_query($link, $query);
- @$numberstring = mysqli_num_rows($result);
  for ($i=0; $i < $numberstring1; $i++) {
 	$row1[$i] = mysqli_fetch_assoc($result1);
 }
+$result = mysqli_query($link, $query);
+ @$numberstring = mysqli_num_rows($result);
 for ($i=0; $i < $numberstring; $i++) {
 	$row[$i] = mysqli_fetch_assoc($result);
 }
@@ -65,7 +66,7 @@ if(isset($_POST['abonement'])){
 }
 $book_id = $row[0]['book_id'];
 if(isset($_POST['add'])){
-	$query = "INSERT into $dbName.issuing (book_id,reader_id,date_taken,date_return) values($book_id, $ireader_id, '2020-12-15', '2021-01-15')";
+	$query = "INSERT into $dbName.issuing (book_id,reader_id,date_taken,date_return) values($book_id, $ireader_id, '2020-12-22', '2021-01-22')";
 	mysqli_query($link, $query);
 	unset($_POST['add']);
 }

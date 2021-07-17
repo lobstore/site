@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 				<div id="Menu">
 				<a href="/">Главная</a>
 				<a href="#">О нас</a>
-				<a href="/templates/shop.php">Библеотека</a>
+				<a href="/templates/shop.php">Библиотека</a>
 				</div>
 					<div id = "searchLine">
 						<form action="shop.php" method="get">

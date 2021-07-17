@@ -1,6 +1,5 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	include 'vars.php';
 	@setcookie('admin', 'access', time()+3600,'admin.php');
 //ini_set('display_errors','On');
 //error_reporting(E_ALL | E_STRICT);
@@ -23,7 +22,8 @@ echo 'No File Uploaded';}
 </head>
 <body>
 	<div >
-		<? //include 'vars.php'; ?>
+		<?
+		include 'vars.php'; print_r($numberstring1);?>
 		<form  id="admit" action="admin.php" method="post" enctype="multipart/form-data">
 			<!--<input type="file" name="inputFile"> -->
 			<textarea rows="10" cols="45" name="description" placeholder="description here"></textarea>
@@ -31,6 +31,7 @@ echo 'No File Uploaded';}
 			<input type="text" name="author" placeholder="author here">
 			<select name="section">
 				<option value="disabled">выберите жанр</option>
+
 			<?
 			for ($i=0; $i < $numberstring1; $i++) {
 				echo '<option value="'.$row1[$i]['s_id'].'">'.$row1[$i]['name'].'</option>';
@@ -38,7 +39,7 @@ echo 'No File Uploaded';}
 			?>
 			</select>
 			<input type="file" name="inputFile">
-			<input type="submit" >
+			<input type="submit" name="addbook">
             </form>
 	</div>
 	<?echo __DIR__;

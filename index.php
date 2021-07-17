@@ -27,7 +27,7 @@
 				<div id="Menu">
 					<a href="/">Главная</a>
 					<a href="#">О нас</a>
-					<a href="/templates/shop.php">Библеотека</a>
+					<a href="/templates/shop.php">Библиотека</a>
 				</div>
 					<div id = "searchLine">
 						<form action="/templates/shop.php" method="get">

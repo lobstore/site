@@ -1,7 +1,7 @@
 <?php
 $hostname = "localhost";
 $username = "root";
-$password = "root";
+$password = "123";
 $dbName = "library";
 if(!isset($_GET['s_book'])){
  $s_book = '';
